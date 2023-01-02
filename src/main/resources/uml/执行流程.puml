@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+== 选择MapperMethod调用 ==
+Application -> MapperProxy: MapperInterface.xxx
+MapperProxy -> MapperProxy: 根据目标方法选择合适MapperMethodInvoker
+MapperProxy -> MapperMethodInvoker: 调用MapperMethodInvoker的invoke方法执行具体的MapperMethod
+MapperMethodInvoker -> MapperMethod: 调用execute方法，按SQL类型分发请求
+MapperMethod -> MapperMethod: 把方法实参转为在SQL中可用的形式
+MapperMethod -> DefaultSqlSession: 调用SqlSession的具体方法，默认使用DefaultSqlSession
+
+DefaultSqlSession -> BaseExecutor: 调用Executor具体方法，默认使用CachingExecutor
+BaseExecutor -> BaseExecutor: 获取BoundSql
+BaseExecutor -> BaseExecutor: 1.校验Executor是否关闭\n2.
+
+@enduml

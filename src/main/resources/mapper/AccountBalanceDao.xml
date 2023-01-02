@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.charlie.dao.AccountBalanceDao">
+    <insert id="saveAccountBalance">
+        INSERT INTO account_balance (`customer_id`, `balance`) VALUES (#{ab.customerId}, #{ab.balance})
+    </insert>
+
+    <update id="updateAccountBalance"></update>
+
+
+    <select id="queryAccountByCustomId" resultType="org.charlie.entity.AccountBalance">
+        SELECT * FROM account_balance WHERE customer_id = #{id}
+    </select>
+</mapper>
