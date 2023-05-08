@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LogAspect {
 
-    @Pointcut("execution(* org.charlie.controller.AccountBalanceController.*(..))")
+    @Pointcut("execution(* org.charlie.mybatisplus.mapper.*.*(..))")
     public void pointcut() {}
 
     @Around("pointcut()")

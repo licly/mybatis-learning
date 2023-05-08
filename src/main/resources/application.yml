@@ -1,12 +1,20 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/test?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://127.0.0.1:3306/mybatis-plus?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: root
-  main:
-    allow-circular-references: true
-mybatis-plus:
-  mapper-locations: classpath:mapper/**
-server:
-  port: 8090
+  sql:
+    init:
+      schema-locations: classpath:sql/mybatisplus/mybatis-plus-schema.sql
+      data-locations: classpath:sql/mybatisplus/mybatis-plus-data.sql
+    hikari:
+      # 如果内网状态良好，获取连接等待时间800，网络状况不佳，推荐设置为1200。
+      # 原因是TCP重连的时间一般是1秒。
+      connection-timeout: 800
+
+
+
+
+
+
