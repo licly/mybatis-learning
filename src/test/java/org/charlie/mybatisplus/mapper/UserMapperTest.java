@@ -21,4 +21,13 @@ class UserMapperTest {
         users.forEach(System.out::println);
     }
 
+    @Test
+    public void testInsert() {
+        User user = new User();
+        user.setAge(10);
+        user.setEmail("123@qq.com");
+        user.setNikeName("听雨");
+        userMapper.insert(user);
+    }
+
 }
